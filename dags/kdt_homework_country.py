@@ -24,11 +24,17 @@ def get_Redshift_connection(autocommit=True):
 
 @task
 def get_country_info(url):
+    # res = requests.get(url)
+    # countries = json.loads(res.text) # json.loads 필요없이 response에서 바로 json있음
     res = requests.get(url)
-    countries = json.loads(res.text)
+    countries = res.json()
     records = []
     for country in countries:
-        records.append([country["name"]["official"].replace("'","''"), country["population"], country["area"]])
+        records.append([
+            country["name"]["official"].replace("'","''"),
+            country["population"],
+            country["area"]
+        ])
     
     logging.info("api-get .. OK")
     return records
@@ -43,7 +49,7 @@ def load_to_redshift(schema, table, records):
         cur.execute(f"DROP TABLE IF EXISTS {schema}.{table}")
         cur.execute(f"""
         CREATE TABLE {schema}.{table} (
-            country varchar(100),
+            country varchar(256) primary key,
             population integer,
             area float
         );""")
@@ -74,5 +80,7 @@ with DAG(
 ) as dag:
 
     url = "https://restcountries.com/v3.1/all"
-    record = get_country_info(url)
-    load_to_redshift("hopeace6", "country_hw", record)
+    schema = "hopeace6"
+    table = "country_hw"
+    records = get_country_info(url)
+    load_to_redshift(schema, table, records)
