@@ -27,7 +27,7 @@
 [cli]
 [debug]
 [api]   # https://airflow.apache.org/docs/apache-airflow/2.5.1/administration-and-deployment/security/api.html
-# 외부에서 api로 에어플로우 시스템을 접근할 때 설정하는 곳
+    # 외부에서 api로 에어플로우 시스템을 접근할 때 설정하는 곳
 [lineage]
 [atlas]
 [operators]
