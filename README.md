@@ -6,10 +6,10 @@
 설정값이 저장되어 있으며 아래와 같이 많은 섹션이 있다.
 ```
 [core]
-  dags_folder = /opt/airflow/dags
-  executor = SequentialExecutor
-  max_active_tasks_per_dag = 16
-  max_active_runs_per_dag = 16
+    dags_folder = /opt/airflow/dags
+    executor = SequentialExecutor
+    max_active_tasks_per_dag = 16
+    max_active_runs_per_dag = 16
 [database]  # SqlAlchemy connection, metadata database
 [logging]
 [metrics]
