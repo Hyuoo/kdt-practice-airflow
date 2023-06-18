@@ -1,6 +1,15 @@
 # kdt_airflow_practice
 
-.
+```
+curl -LfO https://airflow.apache.org/docs/apache-airflow/2.5.1/docker-compose.yaml
+```
+```
+docker-compose -f docker-compose.yaml pull
+```
+```
+docker-compose -f docker-compose.yaml up
+```
+
 
 ## hw1_1 - airflow.cfg 파일   
 설정값이 저장되어 있으며 아래와 같이 많은 섹션이 있다.
