@@ -4,7 +4,7 @@ import logging
 import requests
 
 '''
-https://hooks.slack.com/services/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
+https://hooks.slack.com/services/[slack_url]
 '''
 
 def on_failure_callback(context):
