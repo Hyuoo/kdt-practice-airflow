@@ -31,6 +31,7 @@ def get_country_info(url):
     records = []
     for country in countries:
         records.append([
+            # 문자열에 따옴표(') 있으면 이상. >> 2개로 하면 정상적으로 들어감
             country["name"]["official"].replace("'","''"),
             country["population"],
             country["area"]
@@ -72,11 +73,14 @@ def load_to_redshift(schema, table, records):
 
 
 with DAG(
-    dag_id = 'kdt_country_hw',
+    dag_id = 'kdt_homework_country',
     start_date = datetime(2023,6,10),
     catchup = False,
     tags = ["hopeace6"],
-    schedule = "30 6 * * 6"
+    schedule = "30 6 * * 6",
+    default_args = {
+        'owner':'Hyuoo',
+    }
 ) as dag:
 
     url = "https://restcountries.com/v3.1/all"
