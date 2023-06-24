@@ -43,10 +43,7 @@
 version: '3'
 #### 함수처럼 별칭사용하는거 앞서 선언
 x-airflow-common:
-<<<<<<< HEAD
-=======
   #### airflow-common 별칭 이름
->>>>>>> 7257eb2374e49d0c0dd89e9a011aefe40473d758
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
@@ -66,7 +63,6 @@ x-airflow-common:
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
-<<<<<<< HEAD
     #### 언더바 2개 섹션. 이후 키
     #### [api] auth_backend= 값을 덮어쓰기 s 쓰면 다수.
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
@@ -76,23 +72,11 @@ x-airflow-common:
     AIRFLOW_VAR_DATA_DIR: /opt/airflow/data
     #### 의존성 명령 실행 구문
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- yfinance pandas numpy oauth2client gspread}
-=======
-    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
-    #### AIRFLOW_VAR_~~~~: /asdfsad/ff 에어플로우 환경변수 접두어. Variables. 웹UI에선 안보임
-    
-    #### 의존성 명령 실행 구문
-    #### _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- yfinance pandas numpy} 이런식으로
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
->>>>>>> 7257eb2374e49d0c0dd89e9a011aefe40473d758
   volumes:
-    #### 볼륨 마운트
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-<<<<<<< HEAD
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
-=======
->>>>>>> 7257eb2374e49d0c0dd89e9a011aefe40473d758
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -256,13 +240,8 @@ services:
           echo "   https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#before-you-begin"
           echo
         fi
-<<<<<<< HEAD
         mkdir -p /sources/logs /sources/dags /sources/plugins /sources/data
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins,data}
-=======
-        mkdir -p /sources/logs /sources/dags /sources/plugins
-        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
->>>>>>> 7257eb2374e49d0c0dd89e9a011aefe40473d758
         exec /entrypoint airflow version
     # yamllint enable rule:line-length
     environment:
