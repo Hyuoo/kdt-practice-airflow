@@ -19,3 +19,4 @@ print([1,2,])
 
 import requests
 
+print((lambda a,b:a*(100-b)/100)(500,80))

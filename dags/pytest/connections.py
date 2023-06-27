@@ -9,6 +9,7 @@ def get_Redshift_connection(autocommit=True):
     conn.set_session(autocommit=True)
     return conn.cursor()
 
+# cor.execute("")
 
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 def get_Redshift_connections(autocommit=True):

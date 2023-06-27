@@ -18,7 +18,7 @@
   - 두 번째 인자로 데이터를 읽어올 tab의 이름을 지정합니다.
   - 세 번째 인자로 지정된 test.csv로 저장합니다.
 gsheet.get_google_sheet_to_csv(
-    'https://docs.google.com/spreadsheets/d/1hW-_16OqgctX-_lXBa0VSmQAs98uUnmfOqvDYYjuE50/',
+    'https://docs.google.com/spreadsheets/d/[service_url]',
     'Test',
     'test.csv',
 )
@@ -83,7 +83,7 @@ dag = DAG(
 
 sheets = [
     {
-        "url": "https://docs.google.com/spreadsheets/d/1tPsVqmMkN2eLFC1MgBHvkuZbuujXijfyrLZsBBhNCFE/",
+        "url": "https://docs.google.com/spreadsheets/d/[sheet_url]",
         "tab": "SheetToRedshift",
         "schema": "hopeace6",
         "table": "spreadsheet_copy_testing"

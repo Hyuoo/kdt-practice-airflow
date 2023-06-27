@@ -19,8 +19,7 @@ def on_failure_callback(context):
 
 '''
 curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}'
-https://hooks.slack.com/services/
-T05DDLGM1A9/B05DK2Q0M52/hem7FvbGDgCC42HXiJSWU72X
+https://hooks.slack.com/services/[service_url]
 '''
 
 # def send_message_to_a_slack_channel(message, emoji, channel, access_token):

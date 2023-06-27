@@ -10,6 +10,29 @@ docker-compose -f docker-compose.yaml pull
 docker-compose -f docker-compose.yaml up
 ```
 
+- - -
+
+1. Dags_folder + dag_dir_list_interval
+2. DB -> [core] sql_alchemy_conn
+3. [core] executor
+   1. sequential X -> Local/Celery/Kube
+4. Authentication
+   1. ID/PW, VPN
+5. logging
+   1. [logging] base_log_folder
+   2. [scheduler] child_process_log_directory
+   3. CleanUp
+6. Scale Up/Out
+   1. Single -> Cloud
+   2. Docker/K8s
+7. MetaDB Backup
+   1. var/conn ex/import
+8. HealthCHeck monitoring (API)
+   1. for MetaDB/WebServer/Scheduler
+   2. Tool > DataDog, Grafana
+
+
+- - -
 
 ## hw1_1 - airflow.cfg 파일   
 설정값이 저장되어 있으며 아래와 같이 많은 섹션이 있다.
