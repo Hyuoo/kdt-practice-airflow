@@ -16,6 +16,15 @@ airflow.operators.latest_only.LatestOnlyOperator
 DAG.following_schedule(time) 이런 식으로 다음 스케줄을 가져옴
 left < now <= right
 LatestOnly 자체는 Success로 기록 되고, 이후 태스크는 Skip
+
+if not left_window < now <= right_window:
+   self.log.info("Not latest execution, skipping downstream.")
+   # we return an empty list, thus the parent BaseBranchOperator
+   # won't exclude any downstream tasks from skipping.
+   return []
+else:
+   self.log.info("Latest, allowing execution to proceed.")
+   return list(context["task"].get_direct_relative_ids(upstream=False))
 """
 
 with DAG(
