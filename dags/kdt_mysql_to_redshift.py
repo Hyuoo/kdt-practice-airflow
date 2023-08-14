@@ -29,6 +29,8 @@ schema = "hopeace6"
 table = "nps"
 s3_bucket = "grepp-data-engineering"
 s3_key = schema + "-" + table
+# SqlToS3Operator > s3://grepp-data-engineering/hopeace6-nps
+# S3ToRedshiftOperator > hopeace6.nps
 
 mysql_to_s3_nps = SqlToS3Operator(
     task_id = 'mysql_to_s3_nps',
